@@ -10,6 +10,10 @@ namespace exo_1_nicolas_lombard.test
         [InlineData(4)]
         [InlineData(8)]
         [InlineData(12)]
+        [InlineData(96)]
+        [InlineData(104)]
+        [InlineData(396)]
+        [InlineData(404)]
         [InlineData(ushort.MaxValue - 3)]
         public void DivisiblePar4(ushort annee)
         {
@@ -21,6 +25,10 @@ namespace exo_1_nicolas_lombard.test
         [InlineData(2)]
         [InlineData(3)]
         [InlineData(5)]
+        [InlineData(99)]
+        [InlineData(101)]
+        [InlineData(399)]
+        [InlineData(401)]
         [InlineData(ushort.MaxValue)]
         public void NonDivisiblePar4(ushort annee)
         {
@@ -31,6 +39,10 @@ namespace exo_1_nicolas_lombard.test
         [InlineData(4)]
         [InlineData(8)]
         [InlineData(12)]
+        [InlineData(96)]
+        [InlineData(104)]
+        [InlineData(396)]
+        [InlineData(404)]
         [InlineData(ushort.MaxValue - 3)]
         public void DivisiblePar4MaisPasPar100(ushort annee)
         {
