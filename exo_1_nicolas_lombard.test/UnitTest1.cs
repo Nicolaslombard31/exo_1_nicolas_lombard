@@ -7,55 +7,55 @@ namespace exo_1_nicolas_lombard.test
     public class UnitTest1
     {
         [Theory]
-        [InlineData(400)]
-        [InlineData(800)]
-        [InlineData(1200)]
-        public void AnneesDivisiblePar400(int anneeBissextile)
+        [InlineData(4)]
+        [InlineData(8)]
+        [InlineData(12)]
+        [InlineData(ushort.MaxValue - 3)]
+        public void DivisiblePar4(ushort annee)
         {
-            // ETANT DONNE une années est bisextile
-            // QUAND elle est divisible par 400
-            var estBissectile = CalendrierGregorien.EstBissextile(anneeBissextile);
-            // ALORS on obtient true
-            Assert.True(estBissectile);
+            Assert.True(CalendrierGregorien.EstBissextile(annee));
         }
 
         [Theory]
         [InlineData(1)]
-        [InlineData(401)]
-        [InlineData(801)]
-        public void AnneesNonDivisiblePar400(int anneeBissextile)
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(5)]
+        [InlineData(ushort.MaxValue)]
+        public void NonDivisiblePar4(ushort annee)
         {
-            // ETANT DONNE une années n'est pas bisextile
-            // QUAND elle est divisible par 400
-            var estBissectile = CalendrierGregorien.EstBissextile(anneeBissextile);
-            // ALORS on obtient false
-            Assert.False(estBissectile);
+            Assert.False(CalendrierGregorien.EstBissextile(annee));
+        }
+
+        [Theory]
+        [InlineData(4)]
+        [InlineData(8)]
+        [InlineData(12)]
+        [InlineData(ushort.MaxValue - 3)]
+        public void DivisiblePar4MaisPasPar100(ushort annee)
+        {
+            Assert.True(CalendrierGregorien.EstBissextile(annee));
         }
 
         [Theory]
         [InlineData(100)]
         [InlineData(200)]
         [InlineData(300)]
-        public void AnneesDivisiblePar100MaisPas400(int anneeNonBissextile)
+        [InlineData(500)]
+        [InlineData(ushort.MaxValue)]
+        public void DiviseblePar100MaisPasPar400(ushort annee)
         {
-            // ETANT DONNE une années n'est pas bisextile
-            // QUAND elle est divisible par 100 mais pas par 400
-            var estBissectile = CalendrierGregorien.NestPasBissextile(anneeNonBissextile);
-            // ALORS on obtient true
-            Assert.True(estBissectile);
+            Assert.False(CalendrierGregorien.EstBissextile(annee));
         }
 
         [Theory]
         [InlineData(400)]
         [InlineData(800)]
         [InlineData(1200)]
-        public void AnneesNonDivisiblePar100MaisPar400(int anneeNonBissextile)
+        [InlineData(ushort.MaxValue - 335)]
+        public void DivisiblePar400(ushort annee)
         {
-            // ETANT DONNE une années est bisextile
-            // QUAND elle est divisible par 400 mais pas par 100
-            var estBissectile = CalendrierGregorien.NestPasBissextile(anneeNonBissextile);
-            // ALORS on obtient false
-            Assert.False(estBissectile);
+            Assert.True(CalendrierGregorien.EstBissextile(annee));
         }
     }
 }
