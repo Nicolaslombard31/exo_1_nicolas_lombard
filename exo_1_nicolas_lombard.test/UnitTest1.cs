@@ -1,73 +1,158 @@
-namespace exo_1_nicolas_lombard.test
+namespace NombresRomains.Test;
+
+public class UnitTest1
 {
-    //les années divisible par 400 sont bissextiles
-    //celles divisible par 100, mais pas par 400 ne le sont pas
-    // les années divisible par 4, mais pas par 100 le sont
-    // les années qui ne sont pas divible par 4 ne le sont pas
-    public class UnitTest1
+    [Theory(DisplayName = "Entre 1 et 3, on rï¿½pï¿½te n * I")]
+    [InlineData(1)]
+    [InlineData(2)]
+    [InlineData(3)]
+    public void TestUnitï¿½(int nombreArabe)
     {
-        [Theory]
-        [InlineData(4)]
-        [InlineData(8)]
-        [InlineData(12)]
-        [InlineData(96)]
-        [InlineData(104)]
-        [InlineData(396)]
-        [InlineData(404)]
-        [InlineData(ushort.MaxValue - 3)]
-        public void DivisiblePar4(ushort annee)
-        {
-            Assert.True(CalendrierGregorien.EstBissextile(annee));
-        }
+        Assert.Equal(new string('I', nombreArabe), nombreArabe.ToRomanNumbers());
+    }
 
-        [Theory]
-        [InlineData(1)]
-        [InlineData(2)]
-        [InlineData(3)]
-        [InlineData(5)]
-        [InlineData(99)]
-        [InlineData(101)]
-        [InlineData(399)]
-        [InlineData(401)]
-        [InlineData(ushort.MaxValue)]
-        public void NonDivisiblePar4(ushort annee)
-        {
-            Assert.False(CalendrierGregorien.EstBissextile(annee));
-        }
+    [Fact]
+    public void Test4()
+    {
+        const int nombre = 4;
+        Assert.Equal("IV", nombre.ToRomanNumbers());
+    }
 
-        [Theory]
-        [InlineData(4)]
-        [InlineData(8)]
-        [InlineData(12)]
-        [InlineData(96)]
-        [InlineData(104)]
-        [InlineData(396)]
-        [InlineData(404)]
-        [InlineData(ushort.MaxValue - 3)]
-        public void DivisiblePar4MaisPasPar100(ushort annee)
-        {
-            Assert.True(CalendrierGregorien.EstBissextile(annee));
-        }
+    [Theory(DisplayName = "Entre 5 et 8, on met V plus (5-n) * I")]
+    [InlineData(5)]
+    [InlineData(6)]
+    [InlineData(7)]
+    [InlineData(8)]
+    public void TestCinqPlusUnitï¿½(int nombreArabe)
+    {
+        Assert.Equal("V" + new string('I', nombreArabe - 5), nombreArabe.ToRomanNumbers());
+    }
+    
+    [Theory(DisplayName = "Entre 10 et 13, on met X plus (5-n) * I")]
+    [InlineData(10)]
+    [InlineData(11)]
+    [InlineData(12)]
+    [InlineData(13)]
+    public void TestCinqPlusUnitï¿½(int nombreArabe)
+    {
+        Assert.Equal("X" + new string('I', nombreArabe - 10), nombreArabe.ToRomanNumbers());
+    }
 
-        [Theory]
-        [InlineData(100)]
-        [InlineData(200)]
-        [InlineData(300)]
-        [InlineData(500)]
-        [InlineData(ushort.MaxValue)]
-        public void DiviseblePar100MaisPasPar400(ushort annee)
-        {
-            Assert.False(CalendrierGregorien.EstBissextile(annee));
-        }
+    [Fact]
+    public void Test5()
+    {
+        const int nombre = 5;
+        Assert.Equal("V", nombre.ToRomanNumbers());
+    }
 
-        [Theory]
-        [InlineData(400)]
-        [InlineData(800)]
-        [InlineData(1200)]
-        [InlineData(ushort.MaxValue - 335)]
-        public void DivisiblePar400(ushort annee)
-        {
-            Assert.True(CalendrierGregorien.EstBissextile(annee));
-        }
+    [Fact]
+    public void Test6()
+    {
+        const int nombre = 6;
+        Assert.Equal("VI", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test7()
+    {
+        const int nombre = 7;
+        Assert.Equal("VII", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test8()
+    {
+        const int nombre = 8;
+        Assert.Equal("VIII", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test9()
+    {
+        const int nombre = 9;
+        Assert.Equal("IX", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test10()
+    {
+        const int nombre = 10;
+        Assert.Equal("X", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test11()
+    {
+        const int nombre = 11;
+        Assert.Equal("XI", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test12()
+    {
+        const int nombre = 12;
+        Assert.Equal("XII", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test13()
+    {
+        const int nombre = 13;
+        Assert.Equal("XIII", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test14()
+    {
+        const int nombre = 14;
+        Assert.Equal("XIV", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test15()
+    {
+        const int nombre = 15;
+        Assert.Equal("XV", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test16()
+    {
+        const int nombre = 16;
+        Assert.Equal("XVI", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test17()
+    {
+        const int nombre = 17;
+        Assert.Equal("XVII", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test18()
+    {
+        const int nombre = 18;
+        Assert.Equal("XVIII", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test19()
+    {
+        const int nombre = 19;
+        Assert.Equal("XIX", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void Test20()
+    {
+        const int nombre = 20;
+        Assert.Equal("XX", nombre.ToRomanNumbers());
+    }
+
+    [Fact]
+    public void TestNonSupportï¿½()
+    {
+        Assert.Equal(NombresRomainsExtensions.ErrorMessage, 21.ToRomanNumbers());
     }
 }
